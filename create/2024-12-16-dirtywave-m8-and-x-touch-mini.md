@@ -1,5 +1,5 @@
 ---
-thumbnailUrl: "/articles/assets/2024-12-26-dirtywave-m8-and-x-touch-mini/thumbnail.png"
+thumbnailUrl: "/articles/assets/2024-12-16-dirtywave-m8-and-x-touch-mini/thumbnail.png"
 thumbnailTitle: "Icon showing the M8 interface"
 structuredData: {
     "@context": "https://schema.org",
@@ -72,7 +72,7 @@ I specifically set the channels available for configuration on the M8 to
 certain values and not use "All". My settings for designing an instument
 are as follows:
 
-![M8 MIDI Settings](/articles/assets/2024-12-26-dirtywave-m8-and-x-touch-mini/m8.png)
+![M8 MIDI Settings](/articles/assets/2024-12-16-dirtywave-m8-and-x-touch-mini/m8.png)
 
 This way I can use channel 11 for all CC messages, that can be used to
 control instument parameters, like filter cutoff, reverb, delay, modulation
@@ -104,18 +104,18 @@ for parameters where the default value is 0x80 and the visual indicator
 then shows lit LEDs from 12 o'clock to either the left or the right. The
 left ones light up from 7 o'clock to 5 o'clock.
 
-![Layer A Encoders](/articles/assets/2024-12-26-dirtywave-m8-and-x-touch-mini/layer-a-encoders.png)
+![Layer A Encoders](/articles/assets/2024-12-16-dirtywave-m8-and-x-touch-mini/layer-a-encoders.png)
 
 The encoders also act as buttons. I use them for soloing a track,
 while tweaking it. Setting all buttons as toggles was the easiest to work
 with and not need to hold down a button.
 
-![Layer A Buttons Top](/articles/assets/2024-12-26-dirtywave-m8-and-x-touch-mini/layer-a-buttons-top.png)
+![Layer A Buttons Top](/articles/assets/2024-12-16-dirtywave-m8-and-x-touch-mini/layer-a-buttons-top.png)
 
 The button rows below the encoders are used to mute the corresponding
 track.
 
-![Layer A Buttons Bottom](/articles/assets/2024-12-26-dirtywave-m8-and-x-touch-mini/layer-a-buttons-bottom.png)
+![Layer A Buttons Bottom](/articles/assets/2024-12-16-dirtywave-m8-and-x-touch-mini/layer-a-buttons-bottom.png)
 
 The lower button row in Layer-A is set up to emit also control messages and
 I set the values to switch between a low and a high value in different
@@ -129,12 +129,12 @@ Layer B is more of a performance oriented Layer. The encoders are all set
 to "Single" and I assign them to the parameter that is most important for
 that track.
 
-![Layer B Encoders](/articles/assets/2024-12-26-dirtywave-m8-and-x-touch-mini/layer-b-encoders.png)
+![Layer B Encoders](/articles/assets/2024-12-16-dirtywave-m8-and-x-touch-mini/layer-b-encoders.png)
 
 The encoder buttons act the same as in Layer A.
 
-![Layer B Buttons Top](/articles/assets/2024-12-26-dirtywave-m8-and-x-touch-mini/layer-b-buttons-top.png)
-![Layer B Buttons Bottom](/articles/assets/2024-12-26-dirtywave-m8-and-x-touch-mini/layer-b-buttons-bottom.png)
+![Layer B Buttons Top](/articles/assets/2024-12-16-dirtywave-m8-and-x-touch-mini/layer-b-buttons-top.png)
+![Layer B Buttons Bottom](/articles/assets/2024-12-16-dirtywave-m8-and-x-touch-mini/layer-b-buttons-bottom.png)
 
 Both button rows are assigned to start a particular song row. The M8's
 screen displays the first 16 song rows and one button is dedicated to each
@@ -154,7 +154,7 @@ from the drop down list to accomplish that. The displayed note values have
 some kind of offset baked in them, most probably because some keyboards <88
 keys start with `C-2` as their lowest key.
 
-![Strange Numbering](/articles/assets/2024-12-26-dirtywave-m8-and-x-touch-mini/strange-numbering.png)
+![Strange Numbering](/articles/assets/2024-12-16-dirtywave-m8-and-x-touch-mini/strange-numbering.png)
 
 This affects all note based commands, so song row cues and also mute/solo
 notes. You have to count them down from the top of the drop down list until
