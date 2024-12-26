@@ -21,6 +21,8 @@ published: true
 
 # Controlling the Dirtywave M8 with the Behringer X-Touch Mini
 
+## Contents
+
 ## Motivation
 
 In order to make it easier for me to tweak the parameters of instruments during
@@ -46,7 +48,7 @@ In order to have more control over the values sent to the device, I
 installed a suite of programs from github. Those are SendMidi, ReceiveMidi
 and ShowMidi from [gbevin](https://github.com/gbevin/).
 
-The SendMidi program allows you to specify the exact device to send command
+The SendMidi program allows you to specify the exact device to send commands
 or notes to, eliminating sources of error (we'll come to that later). Here
 is a simple list of commands to determine connected MIDI devices and send a
 play/stop command for the song row 0 to the M8.
@@ -125,7 +127,7 @@ hear how a drastic change of that parameter affects the sound.
 
 ### Layer B
 
-Layer B is more of a performance oriented Layer. The encoders are all set
+Layer B is more of a performance oriented layer. The encoders are all set
 to "Single" and I assign them to the parameter that is most important for
 that track.
 
@@ -138,8 +140,8 @@ The encoder buttons act the same as in Layer A.
 
 Both button rows are assigned to start a particular song row. The M8's
 screen displays the first 16 song rows and one button is dedicated to each
-row. Once a song is longer, this will become impractical, but I'll have to
-see that and maybe change that later again.
+row. Once a song is longer, this will become impractical, but I'll have yet to
+see that and then maybe I'll change that again.
 
 
 ## Shortcomings and Issues
