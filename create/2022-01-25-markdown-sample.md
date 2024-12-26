@@ -179,7 +179,7 @@ $$
 
 [link with title](http://michaelrommel.com 'title text!')
 
-Autoconverted link https://michaelrommel.com/create/
+Autoconverted link https://michaelrommel.com/create
 
 ## Images
 
