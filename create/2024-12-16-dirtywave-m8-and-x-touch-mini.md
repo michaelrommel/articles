@@ -126,6 +126,38 @@ hear how a drastic change of that parameter affects the sound.
 
 ![M8 Desktop Setup](/articles/assets/2024-12-16-dirtywave-m8-and-x-touch-mini/m8-desk.jpg)
 
+### Layer B
+
+Layer B is more of a performance oriented layer. The encoders are all set
+to "Single" and I assign them to the parameter that is most important for
+that track.
+
+![Layer B Encoders](/articles/assets/2024-12-16-dirtywave-m8-and-x-touch-mini/layer-b-encoders.png)
+
+The encoder buttons act the same as in Layer A.
+
+![Layer B Buttons Top](/articles/assets/2024-12-16-dirtywave-m8-and-x-touch-mini/layer-b-buttons-top.png)
+![Layer B Buttons Bottom](/articles/assets/2024-12-16-dirtywave-m8-and-x-touch-mini/layer-b-buttons-bottom.png)
+
+Both button rows are assigned to start a particular song row. The M8's
+screen displays the first 16 song rows and one button is dedicated to each
+row. Once a song is longer, this will become impractical, but I'll have yet to
+see that and then maybe I'll change that again.
+
+
+## Shortcomings and Issues
+
+The X-Touch Mini has a very peculiar setup in the GUI editor, which is a
+bit tricky to work with for the M8. The M8 expects for song row cues the
+(hexa)decimal number of the row as a `note on`. Usually one would think
+that this corresponds to `C-0` for Row 00 or `D-0` for Row 02.
+
+In the GUI of the X-Touch editor you have to pick the first and third entry
+from the drop down list to accomplish that. The displayed note values have
+some kind of offset baked in them, most probably because some keyboards <88
+keys start with `C-2` as their lowest key.
+
+![Strange Numbering](/articles/assets/2024-12-16-dirtywave-m8-and-x-touch-mini/strange-numbering.png)
 This affects all note based commands, so song row cues and also mute/solo
 notes. You have to count them down from the top of the drop down list until
 you get the decimal number, that you need.
