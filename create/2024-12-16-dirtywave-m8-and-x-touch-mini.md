@@ -21,8 +21,6 @@ published: true
 
 # Controlling the Dirtywave M8 with the Behringer X-Touch Mini
 
-## Contents
-
 ## Motivation
 
 In order to make it easier for me to tweak the parameters of instruments during
@@ -68,7 +66,7 @@ think it uses a different, generic MCC command (Machine Control Command),
 but I am not absolutely sure about that.
 
 
-## Configuring the Dirtywave M8
+## Configuring the M8
 
 I specifically set the channels available for configuration on the M8 to
 certain values and not use "All". My settings for designing an instument
@@ -85,7 +83,7 @@ The "songrow cue ch" is the channel, which can trigger the playback of a
 certain row of a song.
 
 
-## Configuring the X-Touch Mini
+## Configuring the X-Touch
 
 Unfortunately there is no macOS/Linux version of the control program for
 the X-Touch mini, so this has to be done on a Windows machine. The program

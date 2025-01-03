@@ -21,8 +21,6 @@ published: true
 
 # h1 Heading 8-)
 
-## Contents
-
 ## h2 Heading
 
 ### h3 Heading

@@ -21,8 +21,6 @@ published: true
 
 # Setup of Wireguard with WSL2
 
-## Contents
-
 ## Overview
 
 ::::div{.grid-left-right}
