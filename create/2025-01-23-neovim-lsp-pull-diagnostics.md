@@ -206,5 +206,5 @@ On the other hand, I found that:
 - the benefits of having a project build upon open source is invaluable. It empowers me
   every time to figure out solutions on my own and not have to wait for others.
 
-  If you have any thoughts on this article, please share it [here](https://github.com/michaelrommel/articles/discussions/2)
+  If you have any thoughts on this article, please share them [here](https://github.com/michaelrommel/articles/discussions/2)
 
