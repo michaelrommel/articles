@@ -1,5 +1,5 @@
 ---
-thumbnailUrl: "/articles/assets/2025-01-23-neovim-lsp-pull-diagnostics/thumbnail.jpg"
+thumbnailUrl: "/articles/assets/2025-01-23-neovim-lsp-pull-diagnostics/thumbnail.png"
 thumbnailTitle: "Icon showing wrong lsp errors"
 structuredData: {
     "@context": "https://schema.org",
@@ -12,14 +12,14 @@ structuredData: {
     },
     "dateModified": "2025-01-23T13:13:04+01:00",
     "datePublished": "2025-01-23T00:00:00+01:00",
-    "headline": "Patch neovim's JSON5 LSP diagnostics",
+    "headline": "JSON5 Linting In Neovim",
     "abstract": "How to supporess false diagnostics errors for JSON5 files with neovim's language servers."
 }
 tags: ["new", "create", "code", "neovim", "lsp", "diagnostics"]
-published: false
+published: true
 ---
 
-# Patch neovim's JSON5 LSP diagnostics
+# JSON5 Linting In Neovim
 
 ## Motivation
 
@@ -27,12 +27,12 @@ In neovim 0.9.5 I had a configuration that allowed me to suppress false error me
 in JSON5 files. The language server, that was extracted fro VScode does not understand
 JSON5 files and flags comments or trailing commas as errors.
 
+![Screenshot of neovim](/articles/assets/2025-01-23-neovim-lsp-pull-diagnostics/thumbnail.png)
+
 When I upgraded to version 0.10.3 this configuration stopped working and I needed a fix
 for that. 
 
-## Troubleshooting
-
-### Initial Setup
+## Initial Setup
 
 I am using `mason-lspconfig` to install and setup language servers in neovim. In the setup
 of the language servers, you can override the handlers for specific LSP methods, like
@@ -41,7 +41,7 @@ suppress the false positives, then call the corresponding on_xxx default handler
 
 My config looked like this:
 
-```
+```lua
 require("mason-lspconfig").setup_handlers {
     -- The first entry (without a key) will be the default handler
     function(server_name)
@@ -69,7 +69,8 @@ require("mason-lspconfig").setup_handlers {
                 ["textDocument/publishDiagnostics"] = function(err, result, ctx, config) -- [!code highlight]
                     -- jsonls doesn't really support json5
                     -- remove some annoying errors
-                    if string.match(result.uri, "%.json5$", -6) and result.diagnostics ~= nil then
+                    if string.match(result.uri, "%.json5$", -6) 
+                        and result.diagnostics ~= nil then
                         local idx = 1
                         while idx <= #result.diagnostics do
                             if result.diagnostics[idx].code == 519 then
@@ -104,7 +105,7 @@ from the diagnostics reports that are sent by the server as part of the method
 `[textDocument/publishDiagnostics]` for JSON5 files only.
 
 
-### Observed Behaviour
+## Observed Behaviour
 
 Once I started using neovim 0.10.x I suddenly the errors in the JSON5 documents came back
 to haunt me again. Initially I was unsure, whether it was a change in:
@@ -123,7 +124,7 @@ server and neovim, I tracked it down to neovim being the culprit. The same confi
 same plugin versions and the same language server exhibited different behaviour.
 
 
-### The Culprit
+## The Culprit
 
 Several hours later I could pin it down to different messages being exchanged between LSP
 client in neovim and the LSP Server.
@@ -163,7 +164,7 @@ The implementation of `textDocument/diagnostic` in neovim is buried in the 0.10.
 commit message under the "Feature" heading, not the "Breaking" heading.
 
 
-### How To Fix It
+## How To Fix It
 
 So now I knew I had to somehow patch into the rpc response that was sent by the language
 server. But I had no clue, where to start, since the message was missing the method. So
@@ -171,5 +172,36 @@ which handler to override? My first gut feeling was to override the correspondin
 `textDocument/diagnostic` handler.
 
 Using the same code fragment with just the method name changed, did not work. Then I
-started to read neovim's source code for the LSP portion.
+started to read neovim's source code for the LSP portion. The lsp.log file told me the
+line number in `runtime/lua/vim/lsp/client.lua` where the rpc message is sent to the
+server. There it was clear, that the handler is given as a callback, so overriding the
+above mentioned hander was indeed the right choice.
 
+I had then to just change a different table: instead of `result.diagnostics` I needed to
+modify `result.items`. Then a little bit different method of checking, whether the file is
+a `json` or `json5` file, because the uri was not part of the response. I refactored the
+common part out into its own private function.
+
+The result can be found [here](https://github.com/michaelrommel/castle-neovim/blob/dbbac16/dirs/.config/miro/lua/plugins/mason-lspconfig.lua#L81)
+
+## Conclusion
+
+In the end it was a very small fix/change. Looking at this 20 line change, everyone would
+wonder, why this took several hours to complete. The benefits of all that time consuming
+debugging is really a better understanding of the inner workings of one of my favourite
+tools in computing. I spend so much time in this editor, that I really like to dive deep
+here.
+
+On the other hand, I found that:
+
+- the documentation of the lsp only covers the basics of the "old" model of push
+  diagnostics messages and give no examples of how to deal with more modern language
+  servers.
+- the discussion sections of github are not a great place to get help. If you have a very
+  successful project like neovim, there are tons of discussions going on and apparently
+  the average level of knowledge of people hanging out there is not enough to tackle
+  deeper problems. And the core devs are more looking into issues and not discussions,
+  which I completely agree with. I deliberately did not open a bug, just for lack of
+  documentation.
+- the benefits of having a project build upon open source is invaluable. It empowers me
+  every time to figure out solutions on my own and not have to wait for others.
