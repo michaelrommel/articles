@@ -15,7 +15,7 @@ structuredData: {
     "headline": "Patch neovim's JSON5 LSP diagnostics",
     "abstract": "How to supporess false diagnostics errors for JSON5 files with neovim's language servers."
 }
-tags: ["new", "create", "code", "neovim", "lsp", "diagnostics" 
+tags: ["new", "create", "code", "neovim", "lsp", "diagnostics"]
 published: false
 ---
 
