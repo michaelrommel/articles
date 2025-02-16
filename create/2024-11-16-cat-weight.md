@@ -21,7 +21,7 @@ tags: ["new", "create", "cat"]
 published: true
 ---
 
-# My Cat's Weights
+# My Cats' Weights
 
 Cats and food is seemingly a never ending topic. Every "cat feeder" I talk to
 is telling stories about refused food and pickyness etc. I experience the
