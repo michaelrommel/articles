@@ -13,7 +13,7 @@ structuredData: {
     "dateModified": "2025-01-23T21:40:03+01:00",
     "datePublished": "2025-01-23T00:00:00+01:00",
     "headline": "JSON5 Linting In Neovim",
-    "abstract": "How to supporess false diagnostics errors for JSON5 files with neovim's language servers."
+    "abstract": "How to suppress false diagnostics errors for JSON5 files with neovim's language servers."
 }
 tags: ["new", "create", "code", "neovim", "lsp", "diagnostics"]
 published: true
