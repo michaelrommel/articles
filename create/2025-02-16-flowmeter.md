@@ -12,23 +12,23 @@ structuredData: {
     },
     "dateModified": "2025-02-16T15:52:53+01:00",
     "datePublished": "2025-02-16T15:53:09+01:00",
-    "headline": "Designing a Watercooler Flowmeter",
-    "abstract": "Create an inexpensive flowmeter for a watercooling system using off-the-shelf components and 3D printing."
+    "headline": "Designing a Water-cooler Flowmeter",
+    "abstract": "Create an inexpensive flowmeter for a water-cooling system using off-the-shelf components and 3D printing."
 }
-tags: ["new", "create", "hardware", "watercooling", "flowmeter"]
+tags: ["new", "create", "hardware", "water-cooling", "flowmeter"]
 published: true
 ---
 
-# A Watercooling Flowmeter
+# A Water-cooling Flowmeter
 
 ## Motivation
 
-I use watercooled systems since many years now because they provide good cooling with
+I use water-cooled systems since many years now because they provide good cooling with
 minimal noise. The downside is the regular maintenance that goes along with it. During one
 of my latest disassemblies my original flowmeter broke and the replacements I tried to
 find online all kinds of downsides. Either they were only showing a rotating wheel, no
 electronics whatsoever, or they show it on a display, with no interfaces to read out the
-values or they only work with proprietory control systems or were heavily overpriced.
+values or they only work with proprietary control systems or were heavily overpriced.
 
 I wanted a simple solution, that can be hooked up to any standard PC fan header on any
 motherboard and where I can use `sensors` under Linux to get the current RPM value.
@@ -42,7 +42,7 @@ with machining the part, cutting threads and sealing all up.
 
 ![Flowmeter Original](/articles/assets/2025-02-16-flowmeter/flowmeter-original.jpg)
 
-First I tried glueing magnets in between the fins of the propeller, but somehow the
+First I tried gluing magnets in between the fins of the propeller, but somehow the
 propeller would not even start under normal circumstances and flow. So I took out
 everything and replaced it with a 3D printed mechanism, where the spinning disc was much
 smaller.
@@ -52,8 +52,8 @@ smaller.
 The first iteration started with a narrow hole to increase the flow rate at this point and
 make the disc spin fast to get good readings on the sensors. I took the dimensions from
 the old sensor which were roughly a 4mm diameter hole and a small disc with a ø6mm x 2mm
-magnet. This design worked, but the magnet was too weak to be deteced through the
-plexiglass cover plate.
+magnet. This design worked, but the magnet was too weak to be detected through the
+acrylic cover plate.
 
 The next iteration increased the disc diameter and magnet thickness. 
 
@@ -73,8 +73,8 @@ made a little ring, that keeps the larger disc at a small distance from the top 
 I wanted to use two magnets to counterbalance the disc and stronger magnets need to be
 further apart in order for the hall sensor to register them individually as singular
 pulses. It again would not start up, it seems the inlets were not off-centered enough, so
-I started with some experiments, changing the directions where the inflow hits the
-propeller, switching curved blades with straight ones and also from 6 to 8 blades. Finally
+I started with some experiments. First changing the directions where the inflow hits the
+propeller then switching out curved blades with straight ones and from 6 to 8 blades. Finally
 I have now a version that starts up reliably.
 
 It now also covers completely the magnet and has an second color segment printed right
@@ -119,7 +119,7 @@ provides compatibility with the standard mainboard headers. It can therefore eas
 integrated into Grafana for a dashboard view of the system's health. The costs were --
 even considering all the iterations I went through -- less than 16 EUR.
 
-It will be interesting to see how well it will perform, if I switch to hard tubings in
+It will be interesting to see how well it will perform, if I switch to hard tubes in
 the next build. The design files for the 3d prints can be requested
 [here](https://github.com/michaelrommel/articles/discussions/3).
 

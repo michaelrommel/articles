@@ -212,7 +212,7 @@ A suitable plugin might be: https://github.com/wataru-chocola/remark-definition-
 
 ## Emojies
 
-Classic markup: :wink: :cry: :laughing: :yum: :innocent:
+Classic markup: :wink: :cry: :laughing: :yum: :innocent: :grimacing: :flushed:
 
 Shortcuts (emoticons): :-) :-( 8-) ;)
 
