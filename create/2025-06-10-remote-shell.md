@@ -13,7 +13,7 @@ structuredData: {
     "dateModified": "2025-06-10T21:40:56+02:00",
     "datePublished": "2025-06-10T21:41:01+02:00",
     "headline": "A collaborative shell in your browser",
-    "abstract": ""
+    "abstract": "Integrating an existing remote shell solution into my site presented a pretty interesting set of challenges to me."
 }
 tags: ["new", "create", "software", "terminal", "sshx", "shell", "neovim"]
 published: true
