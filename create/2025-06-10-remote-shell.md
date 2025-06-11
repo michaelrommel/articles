@@ -15,7 +15,7 @@ structuredData: {
     "headline": "A collaborative shell in your browser",
     "abstract": "Integrating an existing remote shell solution into my site presented a pretty interesting set of challenges to me."
 }
-tags: ["new", "create", "software", "terminal", "sshx", "shell", "neovim"]
+tags: ["new", "create", "code", "terminal", "sshx", "shell", "neovim"]
 published: true
 ---
 
