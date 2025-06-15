@@ -183,7 +183,10 @@ Ok(c)
 After tearing my receding hair out in hours of troubleshooting, I busted out
 wireshark and increased RUST_LOG to `debug`. Then I saw the missing piece: the
 Tlsconnection that was created by the `hyper-http-proxy` crate did not specify
-the ALPN (Application Layer Protocol Negotiation) to `h2`.
+the ALPN (Application Layer Protocol Negotiation) to `h2`. This would have been
+the correct negotiation, but the yellow marked part was initially missing:
+
+![Rust Log Screenshot](/articles/assets/2025-06-15-tonic-proxy/full_log.png)
 
 So the nginx never responded with the support of the HTTP/2 protocol and
 therefore the sent packets by the application were misinterpreted resulting in
