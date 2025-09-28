@@ -62,7 +62,7 @@ so you can just use that top level configuration:
 }
 ```
 
-If you prompt manager does not support this, e.g. starship in version 1.23.0,
+If your prompt manager does not support this, e.g. starship in version 1.23.0,
 you have to configure the shell itself. Modern shells offer the capability to
 execute arbitrary commands, when the prompt is displayed.
 
