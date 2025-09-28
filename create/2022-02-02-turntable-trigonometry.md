@@ -30,6 +30,6 @@ in combination with the correct matching pickup angle, the pickup will
 align tangentially at two predefined radii on the vinyl.
 :::
 
-$$
+```math
 l = \sqrt{d^2 + r_1 * r_2}
-$$
+```
