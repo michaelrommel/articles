@@ -70,8 +70,8 @@ local function string_to_color(str)
 	return c
 end
 
--- On format tab title events, override the default handling to return a custom title
--- Docs: https://wezfurlong.org/wezterm/config/lua/window-events/format-tab-title.html
+-- event hook, override the default handling to return a custom title
+-- Docs: https://wezterm.org/config/lua/window-events/format-tab-title.html
 ---@diagnostic disable-next-line: unused-local
 wezterm.on("format-tab-title", function(tab, tabs, panes, cfg, hover, max_width)
 	local title = get_tab_title(tab) -- [!code highlight]
@@ -113,7 +113,7 @@ via `tab.active_pane.foreground_process_name`. Unfortunately that has two major 
 
 1. if we are running a terminal multiplexer in the tab, we would only ever see the name
 of the multiplexer
-1. under WSL we would ever see the name `wslhost.exe`
+1. under WSL we would always see the name `wslhost.exe`
 
 That is not very helpful. So we have to turn to the shell's configuration again and 
 the `tmux` config. 
@@ -164,12 +164,11 @@ set -g set-titles on
 set -g set-titles-string "[#{=/-10/…:pane_current_command}] #{pane_title}"
 # allow programs to set the pane title
 set -g allow-set-title on
-# automatically set window title
-set -wg automatic-rename on
 ```
 
 The `allow-set-title` directive provides the way for `neovim` to change the title.
-And here, we can now expose the command running in the active tab to the title.
+And here, we can now expose the command running in the active `tmux` pane to the
+title.
 
 `neovim`:
 
@@ -180,8 +179,8 @@ opt.titlestring = "%.20t%( (%.30{expand(\"%:~:h\")})%)"
 ```
 
 In `nvim` the tab title is set to the shortened filename and in parenthesis the
-abbreviated path to the file (which may be relative to the current dir or completely
-unrelated...)
+abbreviated path to the file (which may be relative to the current directory or
+completely unrelated...)
 
 With this in place we can now do some nifty formatting in Wezterm:
 
@@ -233,8 +232,8 @@ local function format_title(tab)
 	return string.format("%s %s", process, description)
 end
 
--- Returns manually set title (from `tab:set_title()` or `wezterm cli set-tab-title`)
--- or creates a new one
+-- Returns manually set title (via `tab:set_title()` or 
+-- `wezterm cli set-tab-title`) or creates a new one
 local function get_tab_title(tab)
 	local title = tab.tab_title
 	if title and #title > 0 then
@@ -245,13 +244,13 @@ end
 ```
 
 I promised to get back to `get_tab_title`... So usually I do not set the tab title
-via wezterm functions, so really I could just call `format_title` directly. I left that
+via Wezterm functions, so really I could just call `format_title` directly. I left that
 in, for the future...
 
 So the meat of the logic is in `format_title`. If we detect that we are running
-inside tmux, we ignore the WEZTERM_PROG variable, because here we would only
-get `tmux` back. Instead we parse the command from the tmux-set tile between
-the brackets. We force append the tmux icon and then try to set the icon, if
+inside `tmux`, we ignore the `WEZTERM_PROG` variable, because here we would only
+get `tmux` back. Instead, we parse the command from the `tmux`-set title between
+the brackets. We force append the `tmux` icon and then try to set the icon, if
 the process is known and possibly a long running command. Short commands
 disappear quickly and it does not make much sense to find an icon for every
 shell builtin...
@@ -261,8 +260,8 @@ shell builtin...
 Here you can see the config in action:
 
 - The first tab runs a `git commit` command in the `~/.local/share/chezmoi/.git` directory
-- The second one is an inactive tab with a tmux session, where the active pane runs some
-  nodejs command and which has produced some output
+- The second one is an inactive tab with a `tmux` session, where the active pane runs some
+  `nodejs` command and which has produced some output
 - The third tab is a `vim` session editing `raid.log` in my home directory
 - The fourth is the active tab running `htop` in my homedir
 
